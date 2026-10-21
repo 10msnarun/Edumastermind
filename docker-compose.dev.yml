@@ -1,0 +1,28 @@
+# ==============================================================================
+# EduMastermind Web - Development Docker Compose Configuration
+# Usage:
+#   docker compose -f docker-compose.dev.yml up --build
+#   docker compose -f docker-compose.dev.yml down
+# ==============================================================================
+
+services:
+  edumastermind-web-dev:
+    image: edumastermind-web:dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: edumastermind-web-dev
+    ports:
+      # Map host port 5173 to Vite container port 5173
+      - "${DEV_PORT:-5173}:5173"
+    volumes:
+      # Mount host source code into container for instant hot module reloading
+      - .:/app
+      # Prevent host node_modules from overwriting container node_modules
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_APP_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    restart: unless-stopped
+    command: npm run dev -- --host 0.0.0.0 --port 5173

@@ -1,0 +1,60 @@
+# ==============================================================================
+# EduMastermind Web - Docker Build Ignore File
+# Excludes unnecessary build artifacts, dependencies, secrets, and IDE metadata
+# ==============================================================================
+
+# Node dependencies (installed cleanly inside the Docker build container)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Production output directories
+dist/
+build/
+.output/
+
+# Git version control metadata
+.git/
+.gitignore
+
+# Environment and sensitive secrets
+# NEVER bake production secrets or local credentials into images
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+# Explicitly allow configuration example file
+!.env.example
+
+# Logs and runtime caches
+logs/
+*.log
+*.pid
+.npm/
+
+# Editor and IDE workspaces
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+
+# Operating system metadata files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Test coverage and temporary tools
+coverage/
+.nyc_output/
+.tmp/
+temp/

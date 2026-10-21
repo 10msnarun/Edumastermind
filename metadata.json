@@ -1,0 +1,6 @@
+{
+  "name": "EduMastermind Containerized Learning Platform",
+  "description": "Production-ready containerized learning platform with multi-stage Dockerfile, Nginx SPA routing, health checks, interactive courses, mastery arena, and spaced repetition.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

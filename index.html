@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduMastermind Containerized Learning Platform</title>
+    <meta name="description" content="Production-ready containerized learning platform with multi-stage Dockerfile, Nginx SPA routing, health checks, interactive courses, mastery arena, and spaced repetition." />
+    <meta property="og:title" content="EduMastermind Containerized Learning Platform" />
+    <meta property="og:description" content="Production-ready containerized learning platform with multi-stage Dockerfile, Nginx SPA routing, health checks, interactive courses, mastery arena, and spaced repetition." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237c3aed' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 10v6M2 10l10-5 10 5-10 5z'/%3E%3Cpath d='M6 12v5c3 3 9 3 12 0v-5'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <!-- Optional runtime public configuration placeholder -->
+    <script>
+      window.__EDU_CONFIG__ = window.__EDU_CONFIG__ || {
+        appName: "EduMastermind",
+        environment: "production",
+        containerPort: 80,
+        hostPort: 8080,
+        apiBaseUrl: "/api/v1",
+        version: "1.0.0"
+      };
+    </script>
+  </head>
+  <body class="bg-[#F8FAFC] text-slate-800 min-h-screen antialiased selection:bg-violet-600 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

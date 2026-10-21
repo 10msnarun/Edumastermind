@@ -1,0 +1,31 @@
+# ==============================================================================
+# EduMastermind Web - Production Docker Compose Configuration
+# Usage:
+#   docker compose up -d --build
+#   docker compose ps
+#   docker compose logs -f edumastermind-web
+#   docker compose down
+# ==============================================================================
+
+services:
+  edumastermind-web:
+    image: edumastermind-web:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: edumastermind-web
+    restart: unless-stopped
+    ports:
+      # Map host port 8080 to container port 80
+      - "${HOST_PORT:-8080}:80"
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://127.0.0.1:80/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    labels:
+      com.edumastermind.description: "EduMastermind Web Platform Production Frontend"
+      com.edumastermind.version: "1.0.0"
